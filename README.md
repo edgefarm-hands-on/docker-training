@@ -5,9 +5,6 @@ paginate: true
 footer: '![height:40px](.assets/ci4rail_logo.png)'
 
 style: |
-  section{
-      justify-content: flex-start;
-  }
   header, footer {
     font-size: 20pt;
   }
@@ -160,3 +157,7 @@ The `client` builds, pushes, pulls and runs images. That's you making the calls 
 The `DOCKER_HOST` can be running on the same local machine the client does stuff. However, it can also be some remote machine. The docker daemon performs the action, e.g. it pulls an image from the registry and runs it with parameters the client passed.
 
 ---
+
+**Need a break before we are going to try out some cool containers?**
+![w:400px center](https://thumbs.dreamstime.com/b/coffee-mug-17527982.jpg)
+
