@@ -11,3 +11,14 @@ tasks:
       rm ~/bin/marp-cli-v2.0.4-linux.tar.gz
       export PATH=$PATH:$(pwd)
       cd ${WORKDIR}
+    command: make html
+
+ports:
+  - port: 8080
+    onOpen: open-preview
+  - port: 80
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - ritwickdey.LiveServer
