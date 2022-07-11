@@ -4,7 +4,8 @@
 
 tasks:
   - init: |
-      cd ~ && mkdir -p bin && cd /bin
+      cd ~ && mkdir -p bin && cd ~/bin
       wget https://github.com/marp-team/marp-cli/releases/download/v2.0.4/marp-cli-v2.0.4-linux.tar.gz -o ~/bin/marp.tar.gz
       tar xfz marp.tar.gz
+      rm ~/bin/marp.tar.gz
       export PATH=$PATH:$(pwd)
