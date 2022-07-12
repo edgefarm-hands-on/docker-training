@@ -127,7 +127,7 @@ Just to name a few:
 * pull (pulls a remote present image from a container registry)
 * rm (deletes containers)
 
-And there many more. But we will see this later.
+There many more options. But we will take a closer look later on in this training.
 
 ---
 
@@ -164,6 +164,9 @@ The `DOCKER_HOST` can be running on the same local machine the client does stuff
 
 ---
 
+# Let's 
+
+
 Now we are are ready to try out running our first container. Run this in your shell:
 
 ```sh
@@ -188,10 +191,27 @@ To generate this message, Docker took the following steps:
 
 To try something more ambitious, you can run an Ubuntu container with:
  $ docker run -it ubuntu bash
+...
+```
 
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
+---
 
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
+Excersise:
+
+1. Write a `Dockerfile` and `build` a container image that contains the application `exercise/webserver-volume-access`. Follow the `exercise/webserver-volume-access/README.md` on how to build the application.
+Make sure the resulting image is as `small as possible`!
+2. `Run` the container so, that the container has the following characteristics:
+
+* let the internal container port `8080` be accesible at the hosts port `9090`.
+* give the container access to the hosts file `exercise/webserver-volume-access/input` in containers filesystem at `/app/input`.
+
+3. Test your setup by updating the input file. After requesting the application the new values shall be printed.
+
+```sh
+$ echo "hello world" > examples/webserver-volume-access/input
+$ curl localhost:9090
+hello World
+$ echo "I am standing on the moon" > examples/webserver-volume-access/input
+$ curl localhost:9090
+I am standing on the moon
 ```
