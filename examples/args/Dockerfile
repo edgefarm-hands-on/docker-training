@@ -1,0 +1,6 @@
+ARG IMAGE=bash
+ARG TAG=latest
+FROM ${IMAGE}:${TAG}
+ARG IMAGE=bash
+ARG TAG=latest
+ENV VERSION=${IMAGE}:${TAG}
