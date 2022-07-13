@@ -1,10 +1,9 @@
----
-marp: true
-title: Basic Containers Training
+<!--
+headingDivider: 2 
 paginate: true
+title: Basic Containers Training
 header: 'Basic Containers Training'
 footer: '![height:40px](.assets/ci4rail_logo.png)'
-
 style: |
   header, footer {
     font-size: 20pt;
@@ -17,7 +16,7 @@ style: |
       padding: 0;
       margin: 5px;
   }
----
+-->
 # Basic Containers Training
 
 Welcome! Here you will find everything that is needed for this course.
