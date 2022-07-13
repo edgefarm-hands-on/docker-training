@@ -33,13 +33,6 @@ jobs:
         env:
           MARP_USER: root:root
 
-      - name: Marp Build (README.pptx)
-        uses: docker://marpteam/marp-cli:v1.7.0
-        with:
-          args: README.md --allow-local-files -o build/README.pptx
-        env:
-          MARP_USER: root:root
-
       - name: Deploy preview
         if: ${{ github.event_name == 'pull_request' }}
         uses: rossjrw/pr-preview-action@v1
