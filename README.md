@@ -3,7 +3,7 @@ headingDivider: 2
 paginate: true
 title: Basic Containers Training
 header: 'Basic Containers Training'
-footer: '![height:40px](.assets/ci4rail_logo.png)'
+footer: '![height:40px](img/ci4rail_logo.png)'
 style: |
   header, footer {
     font-size: 20pt;
@@ -1004,7 +1004,7 @@ $ docker buildx build -t myuser/my-hello-world:v0.0.1 . --push --platform linux/
 ---
 Looking at Docker Hub we see that the image is pushed as multi arch image.
 
-![center](.assets/buildx_artifact.png)
+![center](img/buildx_artifact.png)
 
 ---
 
