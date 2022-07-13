@@ -17,19 +17,19 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Copy images
-        run: mkdir build && cp -R .assets build/.assets
+        run: mkdir build && cp -R img build/img
 
       - name: Marp Build (README)
-        uses: docker://marpteam/marp-cli:v1.7.0
+        uses: docker://marpteam/marp-cli:v2.0.4
         with:
-          args: README.md --allow-local-files  -o build/index.html
+          args: README.md -o build/index.html
         env:
           MARP_USER: root:root
 
       - name: Marp Build (README.pdf)
-        uses: docker://marpteam/marp-cli:v1.7.0
+        uses: docker://marpteam/marp-cli:v2.0.4
         with:
-          args: README.md --allow-local-files -o build/README.pdf
+          args: README.md -o build/README.pdf
         env:
           MARP_USER: root:root
 
