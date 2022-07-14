@@ -311,8 +311,8 @@ CONTAINER ID  IMAGE  COMMAND CREATED  STATUS  PORTS  NAMES
 
 There are several network modes, but we will discuss only two of them today:
 
-* bridge network
-* host network
+- bridge network
+- host network
 ---
 
 ### Bridge network
@@ -321,10 +321,10 @@ Containers can communicate with each other using a network.
 
 TL;DR
 
-* For containers to communicate with other, they need to be part of the same “network”.
-* Docker creates a virtual network called `bridge` by default, and connects your containers to it.
-* In the network, containers are assigned an IP address, which they can use to address each other.
-* If you want more control (and you definitely do), you can create a user-defined bridge, which will give you the added benefit of hostnames for your containers too.
+- For containers to communicate with other, they need to be part of the same “network”.
+- Docker creates a virtual network called `bridge` by default, and connects your containers to it.
+- In the network, containers are assigned an IP address, which they can use to address each other.
+- If you want more control (and you definitely do), you can create a user-defined bridge, which will give you the added benefit of hostnames for your containers too.
 ---
 
 ### Example bridge networking
@@ -368,10 +368,10 @@ Volumes can be used to work around this and keep files alive during container re
 
 TL;DR
 
-* A bind mount uses the host file system, but Docker volumes are native to Docker. 
-* The data is kept somewhere on storage attached to the host – often the local filesystem. 
-* The volume itself has a lifecycle that's longer than the container's, allowing it to persist until no longer needed. Volumes can be shared between containers.
-* In some cases, the volume is in a form that is not usable by the host directly.
+- A bind mount uses the host file system, but Docker volumes are native to Docker. 
+- The data is kept somewhere on storage attached to the host – often the local filesystem. 
+- The volume itself has a lifecycle that's longer than the container's, allowing it to persist until no longer needed. Volumes can be shared between containers.
+- In some cases, the volume is in a form that is not usable by the host directly.
 ---
 
 ### Volumes example
@@ -427,9 +427,9 @@ tl;dr Dockerfiles consist of directives. The most useful are listed below and ar
 ---
 ### FROM
 
-Must be the first non-comment line in a Dockerfile. 
-It references the image your image is based on, called `base image`.
-It can appear multiple times within one Dockerfile to define different sections during the build.
+- Must be the first non-comment line in a Dockerfile. 
+- It references the image your image is based on, called `base image`.
+- It can appear multiple times within one Dockerfile to define different sections during the build.
 
 Usage: 
 ```sh
@@ -442,8 +442,8 @@ FROM <image> --as <name>
 
 ### RUN
 
-Is used to run commands.
-Each RUN creates a new layer that is part of your docker image.
+- Is used to run commands.
+- Each RUN creates a new layer that is part of your docker image.
 
 Usage: 
 ```sh
@@ -455,8 +455,8 @@ RUN <cmd1> && \
 
 ### ENV
 
-Is used to define environment variables to the image.
-Can be combined with ARG.
+- Is used to define environment variables to the image.
+- Can be combined with ARG.
 
 Usage: 
 ```sh
@@ -466,10 +466,10 @@ ENV <key>=<value>
 ---
 ### ARG
 
-Is used as a build argument. Can be used to control behavior during the build of the image.
-Defines a variable that users can pass at build-time to the builder with the docker build command using the --build-arg <varname>=<value> flag
-Multiple variables may be defined by specifying ARG multiple times.
-Environment variables defined using the ENV instruction always override an ARG instruction of the same name.
+- Is used as a build argument. Can be used to control behavior during the build of the image.
+- Defines a variable that users can pass at build-time to the builder with the docker build command using the --build-arg <varname>=<value> flag
+- Multiple variables may be defined by specifying ARG multiple times.
+- Environment variables defined using the ENV instruction always override an ARG instruction of the same name.
 
 Usage: 
 ```sh
@@ -478,8 +478,8 @@ ARG <key>[=<default value>]
 ---
 ### WORKDIR
 
-Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD instructions that follow it.
-It can be used multiple times in the one Dockerfile. If a relative path is provided, it will be relative to the path of the previous WORKDIR instruction.
+- Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD instructions that follow it.
+- It can be used multiple times in the one Dockerfile. If a relative path is provided, it will be relative to the path of the previous WORKDIR instruction.
 
 Usage: 
 ```sh
@@ -489,10 +489,10 @@ WORKDIR </path/to/workdir>
 
 ### ENTRYPOINT
 
-Allows you to configure a container that will run as an executable.
-Command line arguments to docker run <image> will be appended after all elements in an exec form ENTRYPOINT and will override all elements specified using CMD.
-The shell form prevents any CMD or run command line arguments from being used, but the ENTRYPOINT will start via the shell. This means the executable will not be PID 1 nor will it receive UNIX signals. Prepend exec to get around this drawback.
-Only the last ENTRYPOINT instruction in the Dockerfile will have an effect.
+- Allows you to configure a container that will run as an executable.
+- Command line arguments to docker run <image> will be appended after all elements in an exec form ENTRYPOINT and will override all elements specified using CMD.
+- The shell form prevents any CMD or run command line arguments from being used, but the ENTRYPOINT will start via the shell. This means the executable will not be PID 1 nor will it receive UNIX signals. Prepend exec to get around this drawback.
+- Only the last ENTRYPOINT instruction in the Dockerfile will have an effect.
 
 ```
 ENTRYPOINT ["<executable>", "<param>", ...]
@@ -502,11 +502,11 @@ ENTRYPOINT ["<executable>", "<param>", ...]
 
 ### CMD
 
-The main purpose of a CMD is to provide defaults for an executing container. These defaults can include an executable, or they can omit the executable, in which case you must specify an ENTRYPOINT instruction as well.
-There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect.
-If CMD is used to provide default arguments for the ENTRYPOINT instruction, both the CMD and ENTRYPOINT instructions should be specified with the JSON array format.
-If the user specifies arguments to docker run then they will override the default specified in CMD.
-Normal shell processing does not occur when using the exec form. For example, CMD ["echo", "$HOME"] will not do variable substitution on $HOME.
+- The main purpose of a CMD is to provide defaults for an executing container. These defaults can include an executable, or they can omit the executable, in which case you must specify an ENTRYPOINT instruction as well.
+- There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect.
+- If CMD is used to provide default arguments for the ENTRYPOINT instruction, both the CMD and ENTRYPOINT instructions should be specified with the JSON array format.
+- If the user specifies arguments to docker run then they will override the default specified in CMD.
+- Normal shell processing does not occur when using the exec form. For example, CMD ["echo", "$HOME"] will not do variable substitution on $HOME.
 
 ```
 CMD ["<executable>", "<param>", ...]
@@ -516,11 +516,11 @@ CMD ["<param>", ...] (as default parameters to ENTRYPOINT)
 
 ### COPY 
 
-Copies new files or directories and adds them to the filesystem of the image at the path <dest>.
-<src> may contain wildcards and matching will be done using Go’s filepath.Match rules.
-If <src> is a file or directory, then they must be relative to the source directory that is being built (the context of the build).
-<dest> is an absolute path, or a path relative to WORKDIR.
-If <dest> doesn’t exist, it is created along with all missing directories in its path.
+- Copies new files or directories and adds them to the filesystem of the image at the path <dest>.
+- <src> may contain wildcards and matching will be done using Go’s filepath.Match rules.
+- If <src> is a file or directory, then they must be relative to the source directory that is being built (the context of the build).
+- <dest> is an absolute path, or a path relative to WORKDIR.
+- If <dest> doesn’t exist, it is created along with all missing directories in its path.
 
 ```
 COPY <src> [<src> ...] <dest>
@@ -530,7 +530,7 @@ COPY <src> [<src> ...] <dest>
 
 ### ADD
 
-The same as `COPY`, but src can also be a remote URL.
+- The same as `COPY`, but src can also be a remote URL.
 
 ```
 ADD <src> [<src> ...] <dest>
@@ -763,10 +763,10 @@ So far we've often seen something like `nginx:latest`, or `alpine:3.16`. This is
 The format is `<name>:<tag>`.
 
 Examples: 
-* `alpine:3.16`
-* `myuser/myimage:1.2.4`
-* `docker.io/myuser/myimage:1.2.4`
-* `ghcr.io/edgefarm/anck:0.2.0-beta.1`
+- `alpine:3.16`
+- `myuser/myimage:1.2.4`
+- `docker.io/myuser/myimage:1.2.4`
+- `ghcr.io/edgefarm/anck:0.2.0-beta.1`
 
 ---
 
@@ -840,8 +840,8 @@ $ docker push myuser/nginx:myversion
 Make sure the resulting image is as `small as possible`!
 2. `Run` the container so, that the container has the following characteristics:
 
-* let the internal container port `8080` be accesible at the hosts port `9090`.
-* give the container access to the hosts file `exercise/webserver-volume-access/input` in containers filesystem at `/app/input`.
+- let the internal container port `8080` be accesible at the hosts port `9090`.
+- give the container access to the hosts file `exercise/webserver-volume-access/input` in containers filesystem at `/app/input`.
 
 see next site...
 
@@ -929,10 +929,10 @@ See the full reference [here](https://docs.docker.com/engine/reference/commandli
 
 TL;DR
 
-* buildx is a CLI plugin for `docker` 
-* builds multiple docker images. One for each CPU architecture.
-* can be exported or pushed directly to the registry
-* can NOT be used with `docker images` or `docker run`
+- buildx is a CLI plugin for `docker` 
+- builds multiple docker images. One for each CPU architecture.
+- can be exported or pushed directly to the registry
+- can NOT be used with `docker images` or `docker run`
 
 ---
 
