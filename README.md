@@ -1022,7 +1022,7 @@ hello world from x86_64
 **Running this on my Raspberry Pi 4 (aarch64)**
 
 ```
-docker run --rm myuser/my-hello-world:v0.0.1                                                                
+$ docker run --rm myuser/my-hello-world:v0.0.1                                                                
 Unable to find image 'myuser/my-hello-world:v0.0.1' locally
 v0.0.1: Pulling from myuser/my-hello-world
 2408cc74d12b: Already exists 
