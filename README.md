@@ -1,5 +1,4 @@
 <!--
-headingDivider: 2 
 paginate: true
 title: Basic Containers Training
 header: 'Basic Containers Training'
