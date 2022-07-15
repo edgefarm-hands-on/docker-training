@@ -2,10 +2,10 @@
 paginate: true
 title: Basic Containers Training
 header: 'Basic Containers Training'
-footer: '![height:40px](./img/ci4rail_logo.png)'
+footer: '![height:25px](./img/ci4rail_logo.png)'
 style: |
   header, footer {
-    font-size: 20pt;
+    font-size: 10pt;
   }
   h1{
       padding: 0;
