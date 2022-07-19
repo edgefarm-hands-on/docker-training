@@ -913,7 +913,7 @@ $ docker kill webserver-volume-access
 
 # Cross compiling for different CPU architectures
 
-If you want to build a container image for a differen CPU architecture you can do it two ways:
+If you want to build a container image for a different CPU architecture you can do it two ways:
 
 1. compile on the real target hardware
 2. emulate the target hardware and build on any x86 hardware you like.
