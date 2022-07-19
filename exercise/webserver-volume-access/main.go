@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
 
 var inputfile string
@@ -21,6 +22,7 @@ func main() {
 		panic(err)
 	}
 	for {
+		time.Sleep(time.Second)
 	}
 }
 
