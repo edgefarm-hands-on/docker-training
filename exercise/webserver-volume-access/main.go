@@ -17,6 +17,8 @@ func main() {
 	fmt.Println("webserver-volume-access starting...")
 	http.HandleFunc("/", Handler)
 	http.ListenAndServe(":8080", nil)
+	for {
+	}
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
