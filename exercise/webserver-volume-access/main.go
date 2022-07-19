@@ -16,7 +16,10 @@ func main() {
 	fmt.Printf("using '%s' as input file\n", inputfile)
 	fmt.Println("webserver-volume-access starting...")
 	http.HandleFunc("/", Handler)
-	http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		panic(err)
+	}
 	for {
 	}
 }
