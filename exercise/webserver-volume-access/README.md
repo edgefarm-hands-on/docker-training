@@ -31,5 +31,5 @@ Curl to the webserver and see what it delivers to you.
 
 ```sh
 echo "I'm sitting on the moon" > input
-curl localhost:9090
+curl localhost:8080
 ```
